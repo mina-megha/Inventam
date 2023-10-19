@@ -34,13 +34,11 @@ sequelize
     console.error("Unable to connect to the database:", err);
   });
 
-sequelize.sync();
-
 const db = {};
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.categories = require("./categorySchema")(sequelize, Sequelize);
-
+sequelize.sync();
 module.exports = db;

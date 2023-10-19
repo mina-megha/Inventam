@@ -9,9 +9,9 @@ module.exports.getAllCategories = async (req, res) => {
     if (categoriesData.length == 0) {
       return await failMessage("Data not found");
     }
-    const result = helper.getNestedChildren(categoriesData);
+    const result = helper.getNestedChildren(categoriesData, 0);
     return await successMessage("Data get succefully", result);
   } catch (error) {
-    console.log(error);
+    return await failMessage("Internal server error", 500);
   }
 };

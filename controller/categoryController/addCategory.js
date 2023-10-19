@@ -54,6 +54,6 @@ module.exports.addCategory = async (req, res) => {
     let responseData = await categoryResponse(data.id);
     return await successCreateMessage("Data inserted succefully", responseData);
   } catch (error) {
-    console.log(error);
+    return await failMessage("Internal server error", 500);
   }
 };

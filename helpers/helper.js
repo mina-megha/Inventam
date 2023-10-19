@@ -1,10 +1,8 @@
-const getNestedChildren = (arr, parent_id = 0) => {
+const getNestedChildren = (arr, parent_id) => {
   var subCategory = [];
   for (var i = 0; i < arr.length; ++i) {
-    console.log(arr, parent_id);
     if (arr[i].parentCategoryId == parent_id) {
       var grandChildren = getNestedChildren(arr, arr[i].id);
-
       if (grandChildren.length) {
         arr[i].subCategory = grandChildren;
       }

@@ -16,9 +16,9 @@ async function successCreateMessage(msg, payload) {
   return res;
 }
 
-async function failMessage(msg) {
+async function failMessage(msg, code) {
   let res = new Response();
-  res.code = 400;
+  res.code = code ? code : 400;
   res.success = false;
   res.message = msg;
   res.data = [];

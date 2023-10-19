@@ -38,6 +38,6 @@ module.exports.updateCategory = async (req, res) => {
     let responseData = await categoryResponse(categoryId);
     return { msg: "Data updated succefully", data: responseData };
   } catch (error) {
-    console.log(error);
+    return await failMessage("Internal server error", 500);
   }
 };

@@ -39,10 +39,9 @@ SELECT * FROM CategoryCTE;`);
       return isUnique;
     });
     responseData = [].concat(...responseData);
+    responseData = helper.getNestedChildren(responseData, categoryId);
     return await successMessage("Data get succefully", responseData);
   } catch (error) {
-    console.log(error);
+    return await failMessage("Internal server error", 500);
   }
 };
-
-

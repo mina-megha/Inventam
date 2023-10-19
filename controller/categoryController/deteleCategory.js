@@ -48,6 +48,6 @@ SELECT * FROM CategoryCTE;`);
 
     return await successMessage("Data deleted succefully",[]);
   } catch (error) {
-    console.log(error);
+   return await failMessage("Internal server error", 500);
   }
 };
